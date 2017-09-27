@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## System Dependencies
+- Ruby 2.4.2
 
-Things you may want to cover:
+Microservice to return the surrounding postcodes within a certain area.
+Leverages Australian::Postcodes. All distance calculations are done in memory.
 
-* Ruby version
+## Running the app
+- rails -s
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
