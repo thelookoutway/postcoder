@@ -4,12 +4,9 @@ class PostcodesController < ApplicationController
     return head(:not_found) unless postcodes.present?
     @postcode = postcodes.first
 
-    radius = params["radius"].to_f
     results = {}
-
-    (1..3).each do |multiplier|
-      new_radius = radius * multiplier
-      results[new_radius] = surrounding_suburbs(new_radius)
+    [3, 7, 10, 20].each do |radius|
+      results[radius] = surrounding_suburbs(radius)
     end
 
     render json: results
