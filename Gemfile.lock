@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/fivegoodfriends/australia_postcode.git
+  revision: 8ed0d483f93c697fee741decf6640135575a020a
+  branch: radius
+  specs:
+    australia_postcode (0.1.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -33,9 +40,6 @@ GEM
       activemodel (= 5.1.4)
       activesupport (= 5.1.4)
       arel (~> 8.0)
-    activerecord-postgis-adapter (5.0.2)
-      activerecord (~> 5.1)
-      rgeo-activerecord (~> 5.1)
     activesupport (5.1.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
@@ -70,7 +74,6 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
-    pg (0.20.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -106,10 +109,6 @@ GEM
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rgeo (0.6.0)
-    rgeo-activerecord (5.1.0)
-      activerecord (~> 5.0)
-      rgeo (~> 0.3)
     ruby_dep (1.5.0)
     slop (3.6.0)
     spring (2.0.2)
@@ -136,10 +135,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-postgis-adapter
+  australia_postcode!
   byebug
   listen (>= 3.0.5, < 3.2)
-  pg (~> 0.18)
   pry
   puma (~> 3.7)
   rails (~> 5.1.4)
@@ -148,4 +146,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   1.14.6
+   1.15.4

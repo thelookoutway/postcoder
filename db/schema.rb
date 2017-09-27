@@ -10,21 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926100055) do
+ActiveRecord::Schema.define(version: 0) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
-
-  create_table "postcodes", force: :cascade do |t|
-    t.integer "postcode"
-    t.string "suburb"
-    t.string "state"
-    t.decimal "lat"
-    t.decimal "lng"
-    t.geometry "lonlat", limit: {:srid=>0, :type=>"st_point"}
-    t.index ["lonlat"], name: "index_postcodes_on_lonlat", using: :gist
-    t.index ["postcode"], name: "index_postcodes_on_postcode"
-  end
 
 end
