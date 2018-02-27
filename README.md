@@ -1,11 +1,50 @@
-# README
+# Postcoder
 
-## System Dependencies
+Microservice to return surrounding postcodes given an Australian postcode.
+Leverages the `australia_postcode` gem. All distance calculations are performed
+in memory.
+
+## Production dependencies
+
 - Ruby MRI 2.5.0
+- Rails 5.1.4
+- `API_TOKEN` secret environment variable
 
-Microservice to return the surrounding postcodes within a certain area.
-Leverages Australian::Postcodes. All distance calculations are done in memory.
+There's no database, `australia_postcode` reads data from a CSV.
 
-## Running the app
-- rails -s
+## Launching the service
 
+```
+$ rails server
+```
+
+## Using the service
+
+The service only has one endpoint, `/`. Target this with a `GET` request,
+supplying the `api_token` and `postcode` query parameters, and you'll receive a
+JSON response of the shape:
+```
+{
+  "3": [<array of integer postcodes>],
+  "7": [<array of integer postcodes>],
+  "10": [<array of integer postcodes>],
+  "20": [<array of integer postcodes>],
+}
+```
+
+e.g.:
+```
+# assuming you've defined the environment variable API_TOKEN=ASDF
+$ curl "http://localhost:3000/?api_token=ASDF&postcode=2752"
+# => {"3":[2752],"7":[2570,2752],"10":[2570,2745,2752],"20":[2555,2556,2557,2567,2570,2745,2752,2773]}
+```
+
+## Development dependencies
+
+- [direnv](https://direnv.net/) (recommended)
+
+## Running tests
+
+```
+$ rspec
+```
