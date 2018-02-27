@@ -7,7 +7,7 @@ in memory.
 ## Production dependencies
 
 - Ruby MRI 2.5.0
-- Rails 5.1.4
+- Rails 5.1.5
 - `API_TOKEN` secret environment variable
 
 There's no database, `australia_postcode` reads data from a CSV.
