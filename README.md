@@ -1,7 +1,7 @@
 # README
 
 ## System Dependencies
-- Ruby 2.4.2
+- Ruby MRI 2.5.0
 
 Microservice to return the surrounding postcodes within a certain area.
 Leverages Australian::Postcodes. All distance calculations are done in memory.
