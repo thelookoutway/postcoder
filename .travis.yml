@@ -1,0 +1,4 @@
+language: ruby
+env:
+  - API_TOKEN=EXAMPLETOKEN1
+script: bundle exec rspec

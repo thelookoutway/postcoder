@@ -1,4 +1,4 @@
-# Postcoder
+# [Postcoder](https://travis-ci.org/fivegoodfriends/postcoder) ![Travis CI build status](https://travis-ci.org/fivegoodfriends/postcoder.svg?branch=master)
 
 Microservice to return surrounding postcodes given an Australian postcode.
 Leverages the `australia_postcode` gem. All distance calculations are performed
