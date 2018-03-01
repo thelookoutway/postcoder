@@ -1,20 +1,25 @@
 class PostcodesController < ApplicationController
   def index
-    postcodes = Australia::Postcode.find(params["postcode"])
-    return head(:not_found) unless postcodes.present?
-    @postcode = postcodes.first
+    postcodes = Array.wrap(Australia::Postcode.find(params[:postcode]))
+    return head(:not_found) if postcodes.empty?
+    postcode = postcodes.first
 
-    results = {}
-    [3, 7, 10, 20].each do |radius|
-      results[radius] = surrounding_suburbs(radius)
+    postcodes_by_distance = {}
+    [3, 7, 10, 20].each do |km_distance|
+      postcodes_by_distance[km_distance] =
+        postcodes_nearby(postcode: postcode, distance: km_distance)
     end
 
-    render json: results
+    render json: postcodes_by_distance
   end
 
-  def surrounding_suburbs(radius)
-    @postcode
-      .nearby(distance: radius)
-      .map(&:postcode).uniq
+  private
+
+  def postcodes_nearby(postcode:, distance:)
+    postcode
+      .nearby(distance: distance)
+      .map(&:postcode)
+      .sort
+      .uniq
   end
 end
