@@ -12,6 +12,10 @@ in memory.
 
 There's no database, `australia_postcode` reads data from a CSV.
 
+## Development dependencies
+
+- [direnv](https://direnv.net/) (recommended)
+
 ## Launching the service
 
 ```
@@ -38,10 +42,6 @@ e.g.:
 $ curl "http://localhost:3000/?api_token=ASDF&postcode=2752"
 # => {"3":[2752],"7":[2570,2752],"10":[2570,2745,2752],"20":[2555,2556,2557,2567,2570,2745,2752,2773]}
 ```
-
-## Development dependencies
-
-- [direnv](https://direnv.net/) (recommended)
 
 ## Running tests
 
