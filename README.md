@@ -6,7 +6,7 @@ in memory.
 
 ## Production dependencies
 
-- Ruby MRI 2.5.0
+- Ruby MRI 2.5.1
 - Rails 5.1.5
 - `API_TOKEN` secret environment variable
 
