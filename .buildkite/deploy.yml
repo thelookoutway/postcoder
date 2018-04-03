@@ -1,3 +1,0 @@
----
-- name: ":heroku: Deploy"
-  command: "./script/deploy"

@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+export DISABLE_SPRING='true'
+export RAILS_ENV='test'
+
+source .envrc
+
+echo '--- bundling'
+bundle check || bundle install --path vendor/bundle
+
+echo '--- specs'
+bundle exec rspec
