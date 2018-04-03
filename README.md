@@ -43,7 +43,7 @@ $ bundle
 Start the application server:
 
 ```
-$ bundle rails server
+$ bundle exec rails server
 ```
 
 ## Testing
