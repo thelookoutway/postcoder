@@ -1,0 +1,11 @@
+---
+- name: ":rspec: CI"
+  command: "./script/ci"
+  agents:
+    ruby: "2.5.1"
+
+- wait
+
+- name: ":heroku: Deploy"
+  command: "./script/deploy"
+  branches: "master"

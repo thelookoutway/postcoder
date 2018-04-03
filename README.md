@@ -1,28 +1,17 @@
-# Postcoder [![Travis CI build status](https://travis-ci.org/fivegoodfriends/postcoder.svg?branch=master)](https://travis-ci.org/fivegoodfriends/postcoder)
+# Postcoder [![Build status](https://badge.buildkite.com/e4df0912e62c296fba88d74ee6b8d04b4b641cd7c7a04fdb31.svg)](https://buildkite.com/fivegoodfriends/postcoder)
 
-Microservice to return surrounding postcodes given an Australian postcode.
-Leverages the `australia_postcode` gem. All distance calculations are performed
-in memory.
+Microservice to return surrounding postcodes given an Australian postcode.  Leverages the `australia_postcode` gem. All distance calculations are performed in memory.
 
-## Production dependencies
+## System Dependencies
 
 - Ruby MRI 2.5.1
 - Rails 5.1.5
 - `API_TOKEN` secret environment variable
+- [direnv](https://direnv.net/) *(Recommended in development)*
 
 There's no database, `australia_postcode` reads data from a CSV.
 
-## Development dependencies
-
-- [direnv](https://direnv.net/) (recommended)
-
-## Launching the service
-
-```
-$ rails server
-```
-
-## Using the service
+## Usage
 
 The service only has one endpoint, `/`. Target this with a `GET` request,
 supplying the `api_token` and `postcode` query parameters, and you'll receive a
@@ -43,8 +32,28 @@ $ curl "http://localhost:3000/?api_token=ASDF&postcode=2752"
 # => {"3":[2752],"7":[2570,2752],"10":[2570,2745,2752],"20":[2555,2556,2557,2567,2570,2745,2752,2773]}
 ```
 
-## Running tests
+## Development
+
+Install the application's dependencies:
 
 ```
-$ rspec
+$ bundle
 ```
+
+Start the application server:
+
+```
+$ bundle exec rails server
+```
+
+## Testing
+
+Run the entire test suite.
+
+```
+$ bundle exec rspec
+```
+
+## Deploying
+
+This application is automatically deployed when commits are pushed to the master branch and the tests on the master branch pass.
