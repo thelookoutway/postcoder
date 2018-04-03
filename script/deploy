@@ -2,8 +2,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-USAGE="usage: ./deploy"
-
 echo "--- Deploying to $HEROKU_APP_NAME"
 if [ "$(git remote | grep $HEROKU_APP_NAME)" = $HEROKU_APP_NAME ]; then
   git remote remove $HEROKU_APP_NAME
