@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/fivegoodfriends/australia_postcode.git
-  revision: 2adfb919931c1b0264ffb3b9ee1d8fd45ad83d89
+  revision: 29cbf99ef0c3c270a7ef57c7c4f331977ef32679
   branch: radius
   specs:
     australia_postcode (0.1.3)
@@ -175,7 +175,7 @@ DEPENDENCIES
   spring-watcher-listen
 
 RUBY VERSION
-   ruby 2.5.3p105
+   ruby 2.6.0p0
 
 BUNDLED WITH
-   1.16.4
+   1.17.1
