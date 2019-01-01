@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/fivegoodfriends/australia_postcode.git
-  revision: 2adfb919931c1b0264ffb3b9ee1d8fd45ad83d89
+  revision: 29cbf99ef0c3c270a7ef57c7c4f331977ef32679
   branch: radius
   specs:
     australia_postcode (0.1.3)
