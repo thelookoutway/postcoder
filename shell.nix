@@ -1,29 +1,42 @@
 let
-  overlay = self: super: {
-    # Ruby 2.6.5
-    ruby_2_6_5 = (import (builtins.fetchTarball {
-      url = https://github.com/NixOS/nixpkgs-channels/archive/fcc8660d359d2c582b0b148739a72cec476cfef5.tar.gz;
-    }) {}).ruby;
+  sources = import ./nix/sources.nix;
+  nixpkgs = import sources."nixpkgs" {};
 
-    # Bundler 1.17.3
-    bundler_1_17_3 = (import (builtins.fetchTarball {
-      url = https://github.com/NixOS/nixpkgs-channels/archive/fcc8660d359d2c582b0b148739a72cec476cfef5.tar.gz;
-    }) {}).bundler.override({
-      ruby = self.ruby_2_6_5;
-    });
-  };
+  # Ruby 2.6.6
+  ruby = nixpkgs.ruby_2_6;
 
-  nixpkgs = import (builtins.fetchTarball {
-    url = https://releases.nixos.org/nixpkgs/nixpkgs-20.09pre242076.fd457ecb6cc/nixexprs.tar.xz;
-  }) {
-    overlays = [ overlay ];
+  # Bundler 2.1.4
+  bundler = nixpkgs.bundler.override { ruby = ruby; };
+
+  environment = nixpkgs.stdenv.mkDerivation {
+    name = "environment";
+    phases = [ "installPhase" "fixupPhase" ];
+    installPhase = ''
+      touch $out
+    '';
+    buildInputs = [
+      ruby
+      bundler
+
+      nixpkgs.heroku
+      nixpkgs.libiconv
+      nixpkgs.pkg-config
+      nixpkgs.zlib
+    ];
   };
-in nixpkgs.mkShell {
-  buildInputs = with nixpkgs; [
-    bundler_1_17_3
-    libiconv
-    pkg-config
-    ruby_2_6_5
-    zlib
-  ];
+in
+nixpkgs.mkShell {
+  buildInputs = environment.drvAttrs.buildInputs;
+  shellHook =
+    let
+      # We use the store-path for environment as our Bundler cache-key to rebuild gems when the environment changes
+      environmentId = nixpkgs.lib.last (nixpkgs.lib.strings.splitString "/" "${environment}");
+
+    in ''
+      if [ -z "$BUNDLE_PATH" ]; then
+        export BUNDLE_PATH=.bundle/${environmentId}
+      else
+        export BUNDLE_PATH=$BUNDLE_PATH/${environmentId}
+      fi
+    '';
 }
