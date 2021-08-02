@@ -12,6 +12,10 @@ group :development, :test do
   gem "pry-rails"
 end
 
+group :development do
+  gem "listen"
+end
+
 group :test do
   gem "rspec-rails"
 end
