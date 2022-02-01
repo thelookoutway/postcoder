@@ -56,4 +56,4 @@ $ bundle exec rspec
 
 ## Deploying
 
-This application is automatically deployed when commits are pushed to the master branch and the tests on the master branch pass.
+This application is automatically deployed when commits are pushed to the main branch and the tests on the main branch pass.
