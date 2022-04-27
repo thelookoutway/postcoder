@@ -4,11 +4,10 @@ let
   mkBundlerAppDevShell = nixpkgs.callPackage (import sources.bundler-app-dev-shell) {};
 in mkBundlerAppDevShell {
   buildInputs = with nixpkgs; [
-    bundler
     heroku
     libiconv
     pkg-config
-    ruby
+    ruby_3_1
     zlib
   ];
 }

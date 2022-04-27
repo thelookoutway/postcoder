@@ -6,8 +6,8 @@ Microservice to return surrounding postcodes given an Australian postcode. Lever
 
 ## System Dependencies
 
-- Ruby MRI 2.6.6
-- Rails 6.1.4
+- Ruby MRI 3.1.2
+- Rails 7.0.2.3
 - `API_TOKEN` secret environment variable
 - [direnv](https://direnv.net/) _(recommended for development)_
 - [nix](https://nixos.org/) _(recommended for development)_
