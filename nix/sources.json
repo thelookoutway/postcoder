@@ -5,10 +5,10 @@
         "homepage": null,
         "owner": "fivegoodfriends",
         "repo": "bundler-app-dev-shell",
-        "rev": "5119ee3f6803ddb4e99b38449bc6b3a21f1ba738",
-        "sha256": "0y637vh9w2xzsr2bas0vvx9b6qg92wmyvychvsd9mhpbwk2x0asj",
+        "rev": "9b554b3f82fcceec86389f7cd0b87f60e6dddc5e",
+        "sha256": "1i9xjdknzvk6kjr827h4ns24nyy7l3cakbzma8a3yaxkql5j8zk9",
         "type": "tarball",
-        "url": "https://github.com/fivegoodfriends/bundler-app-dev-shell/archive/5119ee3f6803ddb4e99b38449bc6b3a21f1ba738.tar.gz",
+        "url": "https://github.com/fivegoodfriends/bundler-app-dev-shell/archive/9b554b3f82fcceec86389f7cd0b87f60e6dddc5e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -29,10 +29,10 @@
         "homepage": "",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a5282b8bfc8ba84ce2f7ec6da470d16f579a1419",
-        "sha256": "1r0myjlknzc7czdvsapj6z38nwriz3g990jalcink4vrpk4fw907",
+        "rev": "f73acb5733244d0740c8181af30a58912427f5c6",
+        "sha256": "0qb19gza1kch066d703ysj0cjyn9ryk946653v65vp6ndhabfpjq",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/a5282b8bfc8ba84ce2f7ec6da470d16f579a1419.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/f73acb5733244d0740c8181af30a58912427f5c6.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
