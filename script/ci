@@ -4,8 +4,9 @@ IFS=$'\n\t'
 
 export DISABLE_SPRING='true'
 export RAILS_ENV='test'
-
-source .envrc
+set -a
+source .env
+set +a
 
 echo '--- bundling'
 bundle check || bundle install --path vendor/bundle
