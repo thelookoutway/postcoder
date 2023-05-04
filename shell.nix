@@ -5,9 +5,6 @@ let
 in mkBundlerAppDevShell {
   buildInputs = with nixpkgs; [
     heroku
-    libiconv
-    pkg-config
     ruby_3_1
-    zlib
   ];
 }
