@@ -1,15 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 set -euo pipefail
 IFS=$'\n\t'
 
-export DISABLE_SPRING='true'
-export RAILS_ENV='test'
+echo "--- Applying test environment variables"
+export DISABLE_SPRING="true"
+export RAILS_ENV="test"
 set -a
 source .env
 set +a
 
-echo '--- bundling'
-bundle check || bundle install --path vendor/bundle
+echo "--- Installing dependencies"
+bundle install
 
-echo '--- specs'
-bundle exec rspec
+echo "+++ Running tests"
+bin/rspec
