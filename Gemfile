@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.1.4"
 
-gem "rails", "7.0.7"
+gem "rails", "7.0.7.1"
 gem "puma"
 gem "australia_postcode", git: "https://github.com/fivegoodfriends/australia_postcode.git", branch: "radius"
 
